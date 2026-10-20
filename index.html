@@ -18,13 +18,6 @@
       transition: background-color 0.4s ease;
     }
     h1 { margin: 0; color: #222; }
-    #colorCode {
-      font-size: 1.4rem;
-      font-family: monospace;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 6px 14px;
-      border-radius: 8px;
-    }
     button {
       font-size: 1.2rem;
       padding: 14px 32px;
@@ -33,6 +26,7 @@
       background: #222;
       color: #fff;
       cursor: pointer;
+      min-width: 220px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
       transition: transform 0.15s ease;
     }
@@ -42,12 +36,10 @@
 </head>
 <body>
   <h1>מחליף צבעים</h1>
-  <div id="colorCode">#FFFFFF</div>
   <button id="changeColorBtn">החלף צבע רקע</button>
 
   <script>
     const btn = document.getElementById('changeColorBtn');
-    const colorCode = document.getElementById('colorCode');
 
     function randomColor() {
       return '#' + Math.floor(Math.random() * 0x1000000)
@@ -57,7 +49,7 @@
     btn.addEventListener('click', () => {
       const color = randomColor();
       document.body.style.backgroundColor = color;
-      colorCode.textContent = color;
+      btn.textContent = color;
     });
   </script>
 </body>
